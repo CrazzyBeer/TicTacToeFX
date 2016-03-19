@@ -1,0 +1,32 @@
+.mainBox {
+	-fx-background-color: linear-gradient(#fefaea 0%, #f1c835 97%);
+}
+
+.btn {
+	-fx-background-color: transparent;
+	-fx-border-color: rgba(0,0,0, 50);
+	-fx-border-width: 1px;
+	
+	-fx-font-family: Verdana;
+	-fx-font-size: 14px;
+	
+}
+.btnleft {
+	-fx-background-radius: 10px 0px 0px 10px; 
+	-fx-border-radius: 10px 0px 0px 10px; 
+	
+}
+.btnright {
+	-fx-background-radius: 0px 10px 10px 0px; 
+	-fx-border-radius: 0px 10px 10px 0px; 
+}
+
+.btn:hover {
+	-fx-cursor: hand;
+}
+
+.lbl {
+	-fx-border-width: 1px;
+	-fx-border-color: black;
+	
+}

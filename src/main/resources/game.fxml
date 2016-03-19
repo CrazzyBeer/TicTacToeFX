@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="mainBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="mainBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TicTacToe.GameController">
+   <children>
+      <HBox alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" onDragDetected="#backToMenuPressed" prefHeight="30.0" prefWidth="60.0" text="Back" textAlignment="CENTER">
+               <styleClass>
+                  <String fx:value="btnleft" />
+                  <String fx:value="btn" />
+               </styleClass>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="150.0" styleClass="lbl" text="Player 1 moves" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="60.0" text="Undo">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btnright" />
+               </styleClass>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <Canvas fx:id="canvas" height="200.0" width="200.0" />
+   </children>
+</VBox>

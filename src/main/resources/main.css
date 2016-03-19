@@ -1,0 +1,26 @@
+.btn {
+	-fx-background-color: transparent;
+	-fx-border-color: rgba(0,0,0, 50);
+	-fx-background-radius: 20px 20px 20px 20px; 
+	-fx-border-radius: 20px 20px 20px 20px; 
+	-fx-border-width: 2px;
+	
+	-fx-font-family: Verdana;
+	-fx-font-weight: Bold;
+	
+}
+.btn:hover {
+	-fx-cursor: hand;
+}
+
+.mainBox {
+	-fx-background-color: linear-gradient(#fefaea 0%, #f1c835 97%);
+}
+
+.text {
+	-fx-background-color: transparent;
+}
+
+.img:hover {
+	-fx-cursor : hand;
+}
