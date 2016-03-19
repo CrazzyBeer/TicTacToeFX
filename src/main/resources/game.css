@@ -4,11 +4,11 @@
 
 .btn {
 	-fx-background-color: transparent;
-	-fx-border-color: rgba(0,0,0, 50);
-	-fx-border-width: 1px;
 	
 	-fx-font-family: Verdana;
-	-fx-font-size: 14px;
+	-fx-font-size: 17px;
+	-fx-font-weight: bold;
+	-fx-background-color: linear-gradient(rgba(64,150,238,1) 0%, rgba(64,150,238,1) 100%);
 	
 }
 .btnleft {
@@ -19,14 +19,46 @@
 .btnright {
 	-fx-background-radius: 0px 10px 10px 0px; 
 	-fx-border-radius: 0px 10px 10px 0px; 
+	
 }
 
 .btn:hover {
 	-fx-cursor: hand;
+	-fx-background-color: linear-gradient(rgba(249,198,103,1) 0%, rgba(247,150,33,1) 100%); 
 }
 
 .lbl {
-	-fx-border-width: 1px;
+	-fx-font-size: 17px;
+	-fx-font-weight: bold;
+	-fx-background-color: linear-gradient(rgba(249,198,103,1) 0%, rgba(247,150,33,1) 100%);
+}
+
+.letter {
+	-fx-stroke: black;
+	-fx-stroke-type: outside;
+	-fx-stroke-width: 2px;
+	-fx-text-alignment: center;
+	-fx-font-family: "Segoe Print";
+	-fx-font-size: 70px;
+	-fx-font-weight: bold;
+}
+
+.letteractive {
+	-fx-fill: linear-gradient(#ffc300 0%, #ffda00 100%);
+}
+
+.letterinactive {
+	-fx-fill: transparent;
+}
+
+.separator {
+	-fx-background-color: linear-gradient(rgba(255,175,75,50) 0%, rgba(255,146,10,50) 100%);
+	-fx-border-width: 0.2px;
 	-fx-border-color: black;
-	
+	-fx-border-radius: 20px 20px 20px 20px;
+	-fx-background-radius: 20px 20px 20px 20px;
+}
+.separator .line {
+	-fx-background-color: transparent;
+	-fx-border-width: 0px;
 }
