@@ -1,20 +1,14 @@
 package com.TicTacToe;
 
 
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class GameController {
+public class AIVSAIController {
 	public Stage mainStage;
 	public Scene mainScene;
 	public Scene gameScene;
@@ -23,12 +17,13 @@ public class GameController {
 	public Label playerLabel;
 	public GridPane gridPane;
 	public Text[][] letters;
-	public Game game;
-
+	public AIVSAIGame game;
+	
 	public void initialize() {
-		game = new Game();
-
+		
 		prepareLetters();
+		game = new AIVSAIGame(letters);
+		
 	}
 	
 	public void setStage(Stage mainStage) {
@@ -60,45 +55,6 @@ public class GameController {
 				GridPane.setColumnIndex(t, j);
 				letters[a][b] = t;
 				gridPane.getChildren().add(t);
-
-				t.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-					@Override
-					public void handle(MouseEvent event) {
-						if (!game.isActivated(a, b)) {
-							game.move(a, b);
-							playerLabel.setText("Player " + game.getTurn() + " moves");
-							game.redrawLetters(letters);
-						}
-
-					}
-
-				});
-
-				t.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-					@Override
-					public void handle(MouseEvent event) {
-						if (!game.isActivated(a, b)) {
-							t.setText(game.getStringTurn());
-							t.setOpacity(1);
-						}
-					}
-
-				});
-				
-				t.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-					@Override
-					public void handle(MouseEvent event) {
-						if (!game.isActivated(a, b)) {
-							t.setText(game.getStringTurn());
-							t.setOpacity(0);
-						}
-
-					}
-
-				});
 			}
 		}
 	}
@@ -107,9 +63,15 @@ public class GameController {
 		mainStage.setScene(mainScene);
 	}
 	
-	public void undoPressed() {
-		game.undo();
-		game.redrawLetters(letters);
+	public void nextPressed() {
+		game.nextMove();
+		game.redrawLetters();
+		playerLabel.setText(game.getResult());
 	}
 
+	public void refreshPressed() {
+		game = new AIVSAIGame(letters);
+		game.redrawLetters();
+		playerLabel.setText(game.getResult());
+	}
 }

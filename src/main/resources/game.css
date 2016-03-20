@@ -3,8 +3,7 @@
 }
 
 .btn {
-	-fx-background-color: transparent;
-	
+
 	-fx-font-family: Verdana;
 	-fx-font-size: 17px;
 	-fx-font-weight: bold;
@@ -31,6 +30,7 @@
 	-fx-font-size: 17px;
 	-fx-font-weight: bold;
 	-fx-background-color: linear-gradient(rgba(249,198,103,1) 0%, rgba(247,150,33,1) 100%);
+	-fx-cursor : hand;
 }
 
 .letter {
@@ -49,6 +49,10 @@
 
 .letterinactive {
 	-fx-fill: transparent;
+}
+
+.letterwinning {
+	-fx-fill: linear-gradient(rgba(255,48,25,1) 0%, rgba(207,4,4,1) 100%);
 }
 
 .separator {

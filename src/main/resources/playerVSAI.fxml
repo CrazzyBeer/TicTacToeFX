@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="mainBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="mainBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TicTacToe.playerVSAIController">
+   <children>
+      <HBox alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" onMousePressed="#backToMenuPressed" prefWidth="70.0" textAlignment="CENTER">
+               <styleClass>
+                  <String fx:value="btnleft" />
+                  <String fx:value="btn" />
+               </styleClass>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#backToMenuPressed" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="playerLabel" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="8.0" maxHeight="1.7976931348623157E308" onMouseClicked="#refreshPressed" prefWidth="190.0" styleClass="lbl" text="Player 1 moves" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="BatangChe" size="17.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#backToMenuPressed" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label alignment="CENTER" onMouseClicked="#undoPressed" prefWidth="70.0">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btnright" />
+               </styleClass>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="30.0" onMouseClicked="#undoPressed" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@undo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <GridPane fx:id="gridPane" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="135.0" prefWidth="135.0" />
+            <ColumnConstraints fillWidth="false" maxWidth="51.0" minWidth="7.0" prefWidth="7.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="135.0" />
+            <ColumnConstraints maxWidth="28.0" minWidth="7.0" prefWidth="7.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="135.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="135.0" />
+            <RowConstraints maxHeight="60.0" minHeight="7.0" prefHeight="7.0" />
+          <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="135.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="59.0" minHeight="7.0" prefHeight="7.0" />
+          <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <VBox.margin>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </VBox.margin>
+         <children>
+            <Separator orientation="VERTICAL" prefWidth="7.0" styleClass="border" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="5" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></Separator>
+            <Separator orientation="VERTICAL" prefWidth="7.0" styleClass="border" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="5" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Separator>
+            <Separator prefHeight="7.0" styleClass="border" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Separator>
+            <Separator prefHeight="7.0" styleClass="border" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Separator>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

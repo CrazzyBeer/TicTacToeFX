@@ -7,7 +7,6 @@ import java.net.URISyntaxException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -16,7 +15,7 @@ public class MainController {
 	public Label imageLabel;
 	public Stage mainStage;
 	public Scene mainScene;
-	public Scene gameScene;
+	public Scene playerVSplayerScene;
 	
 	public void initialize() {
 
@@ -31,7 +30,7 @@ public class MainController {
 	}
 	
 	public void setGameScene(Scene gameScene) {
-		this.gameScene = gameScene;
+		this.playerVSplayerScene = gameScene;
 	}
 	
 	
@@ -58,28 +57,66 @@ public class MainController {
 		 * Game Controller
 		 */
 		try {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/game.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/playerVSplayer.fxml"));
 		Pane root = loader.load();
-		GameController gameController = loader.<GameController> getController();
+		playerVSplayerController playerVSplayerController = loader.<playerVSplayerController> getController();
 		
-		Scene gameScene = new Scene(root);
-		gameScene.getStylesheets().add(getClass().getResource("/game.css").toExternalForm());
+		Scene playerVSplayerScene = new Scene(root);
+		playerVSplayerScene.getStylesheets().add(getClass().getResource("/game.css").toExternalForm());
 		
-		gameController.setStage(mainStage);
-		gameController.setMainSceneScene(mainScene);
-		gameController.setGameScene(gameScene);
+		playerVSplayerController.setStage(mainStage);
+		playerVSplayerController.setMainSceneScene(mainScene);
+		playerVSplayerController.setGameScene(playerVSplayerScene);
 		
-		mainStage.setScene(gameScene);
+		mainStage.setScene(playerVSplayerScene);
 		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	public void playerVsAIPressed() {
+		/**
+		 * Game Controller
+		 */
+		try {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/playerVSAI.fxml"));
+		Pane root = loader.load();
+		playerVSAIController playerVSAIController = loader.<playerVSAIController> getController();
 		
+		Scene playerVSAIScene = new Scene(root);
+		playerVSAIScene.getStylesheets().add(getClass().getResource("/game.css").toExternalForm());
+		
+		playerVSAIController.setStage(mainStage);
+		playerVSAIController.setMainSceneScene(mainScene);
+		playerVSAIController.setGameScene(playerVSAIScene);
+		
+		mainStage.setScene(playerVSAIScene);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	public void AIvsAIPressed() {
+		/**
+		 * Game Controller
+		 */
+		try {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/AIVSAI.fxml"));
+		Pane root = loader.load();
+		AIVSAIController AIVSAIController = loader.<AIVSAIController> getController();
 		
+		Scene AIVSAIScene = new Scene(root);
+		AIVSAIScene.getStylesheets().add(getClass().getResource("/game.css").toExternalForm());
+		
+		AIVSAIController.setStage(mainStage);
+		AIVSAIController.setMainSceneScene(mainScene);
+		AIVSAIController.setGameScene(AIVSAIScene);
+		
+		mainStage.setScene(AIVSAIScene);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

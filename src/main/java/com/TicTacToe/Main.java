@@ -2,7 +2,6 @@ package com.TicTacToe;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
@@ -27,7 +26,7 @@ public class Main extends Application {
 			mainController.setStage(mainStage);
 			mainController.setMainScene(mainScene);
 	
-			
+			mainStage.getIcons().add(new Image(getClass().getResource("/icon.png").toExternalForm()));
 			mainStage.setScene(mainScene);
 			mainStage.setMinWidth(500);
 			mainStage.setMinHeight(500);
@@ -38,7 +37,25 @@ public class Main extends Application {
 		}
 	}
 	public static void main(String[] args) {
-		launch(args);
+		if (args.length > 0) {
+			int games = Integer.parseInt(args[0]);
+			int w1 = 0;
+			int w2 = 0;
+			int d = 0;
+			for (int i = 0; i<games; i++){
+				AIVSAIGame t = new AIVSAIGame();
+				while (!t.isFinished()) t.nextMove();
+				int r = t.getIntResult();
+				if (r == 1) w1++;
+				if (r == 2) w2++;
+				if (r == 3) d ++;
+			}
+			System.out.printf("From %d Games AI_1 WON %f , AI_2 WON %f and %f Draws \n", games, (double)(w1*100)/games, (double)(w2*100)/games, (double)(d*100)/games);
+			
+		} else {
+			launch(args);
+		}
+
 		
 	}
 
