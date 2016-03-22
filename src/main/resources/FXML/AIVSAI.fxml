@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="mainBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="mainBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TicTacToe.playerVSAIController">
+<VBox fx:id="mainBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="mainBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TicTacToe.GameController.AIVSAIController">
    <children>
       <HBox alignment="CENTER">
          <children>
@@ -30,12 +30,12 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#backToMenuPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@back.png" />
+                        <Image url="@/img/back.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Label>
-            <Label fx:id="playerLabel" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="8.0" maxHeight="1.7976931348623157E308" onMouseClicked="#refreshPressed" prefWidth="190.0" styleClass="lbl" text="Player 1 moves" textAlignment="CENTER">
+            <Label fx:id="playerLabel" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="8.0" maxHeight="1.7976931348623157E308" onMouseClicked="#refreshPressed" prefWidth="190.0" styleClass="lbl" text="AI_1 moves" textAlignment="CENTER">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -48,12 +48,12 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#backToMenuPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@refresh.png" />
+                        <Image url="@/img/refresh.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Label>
-            <Label alignment="CENTER" onMouseClicked="#undoPressed" prefWidth="70.0">
+            <Label alignment="CENTER" onMouseClicked="#nextPressed" prefWidth="70.0">
                <styleClass>
                   <String fx:value="btn" />
                   <String fx:value="btnright" />
@@ -68,9 +68,9 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
                <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="30.0" onMouseClicked="#undoPressed" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="30.0" onMouseClicked="#nextPressed" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@undo.png" />
+                        <Image url="@/img/next.png" />
                      </image>
                   </ImageView>
                </graphic>

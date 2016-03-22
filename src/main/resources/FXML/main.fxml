@@ -38,7 +38,7 @@
                <graphic>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@github.png" />
+                        <Image url="@/img/github.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -66,7 +66,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
-                        <Image url="@human.png" />
+                        <Image url="@/img/human.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -81,7 +81,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
-                        <Image url="@pawn.png" />
+                        <Image url="@/img/pawn.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -96,7 +96,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
-                        <Image url="@brain.png" />
+                        <Image url="@/img/brain.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -111,7 +111,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
-                        <Image url="@settings.png" />
+                        <Image url="@/img/settings.png" />
                      </image>
                   </ImageView>
                </graphic>

@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import com.TicTacToe.GameController.AIVSAIController;
+import com.TicTacToe.GameController.playerVSAIController;
+import com.TicTacToe.GameController.playerVSplayerController;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -57,12 +61,12 @@ public class MainController {
 		 * Game Controller
 		 */
 		try {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/playerVSplayer.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/playerVSplayer.fxml"));
 		Pane root = loader.load();
 		playerVSplayerController playerVSplayerController = loader.<playerVSplayerController> getController();
 		
 		Scene playerVSplayerScene = new Scene(root);
-		playerVSplayerScene.getStylesheets().add(getClass().getResource("/game.css").toExternalForm());
+		playerVSplayerScene.getStylesheets().add(getClass().getResource("/CSS/game.css").toExternalForm());
 		
 		playerVSplayerController.setStage(mainStage);
 		playerVSplayerController.setMainSceneScene(mainScene);
@@ -79,12 +83,12 @@ public class MainController {
 		 * Game Controller
 		 */
 		try {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/playerVSAI.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/playerVSAI.fxml"));
 		Pane root = loader.load();
 		playerVSAIController playerVSAIController = loader.<playerVSAIController> getController();
 		
 		Scene playerVSAIScene = new Scene(root);
-		playerVSAIScene.getStylesheets().add(getClass().getResource("/game.css").toExternalForm());
+		playerVSAIScene.getStylesheets().add(getClass().getResource("/CSS/game.css").toExternalForm());
 		
 		playerVSAIController.setStage(mainStage);
 		playerVSAIController.setMainSceneScene(mainScene);
@@ -101,12 +105,12 @@ public class MainController {
 		 * Game Controller
 		 */
 		try {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/AIVSAI.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AIVSAI.fxml"));
 		Pane root = loader.load();
 		AIVSAIController AIVSAIController = loader.<AIVSAIController> getController();
 		
 		Scene AIVSAIScene = new Scene(root);
-		AIVSAIScene.getStylesheets().add(getClass().getResource("/game.css").toExternalForm());
+		AIVSAIScene.getStylesheets().add(getClass().getResource("/CSS/game.css").toExternalForm());
 		
 		AIVSAIController.setStage(mainStage);
 		AIVSAIController.setMainSceneScene(mainScene);
