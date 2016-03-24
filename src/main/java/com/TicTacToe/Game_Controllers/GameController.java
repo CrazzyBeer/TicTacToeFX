@@ -1,4 +1,4 @@
-package com.TicTacToe.GameController;
+package com.TicTacToe.Game_Controllers;
 
 import com.TicTacToe.Game.Game;
 

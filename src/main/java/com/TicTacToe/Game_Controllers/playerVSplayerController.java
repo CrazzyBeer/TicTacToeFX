@@ -1,4 +1,4 @@
-package com.TicTacToe.GameController;
+package com.TicTacToe.Game_Controllers;
 
 import com.TicTacToe.Game.playerVSplayerGame;
 
@@ -15,7 +15,7 @@ public class playerVSplayerController extends GameController {
     public void initialize() {
 	
 	prepareLetters();
-	playerLabel.setText("AI_1 moves");
+	playerLabel.setText("Player 1 moves");
 
 	game = new playerVSplayerGame(letters);
     }
@@ -23,7 +23,7 @@ public class playerVSplayerController extends GameController {
     /**
      * Restarts the game
      * 
-     * @see com.TicTacToe.GameController.GameController#refreshPressed()
+     * @see com.TicTacToe.Game_Controllers.GameController#refreshPressed()
      */
     @Override
     public void refreshPressed() {

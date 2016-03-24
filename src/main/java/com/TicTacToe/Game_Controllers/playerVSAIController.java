@@ -1,4 +1,4 @@
-package com.TicTacToe.GameController;
+package com.TicTacToe.Game_Controllers;
 
 import com.TicTacToe.Game.playerVSAIGame;
 
@@ -36,7 +36,7 @@ public class playerVSAIController extends GameController {
     /**
      * Restarts the game
      * 
-     * @see com.TicTacToe.GameController.GameController#refreshPressed()
+     * @see com.TicTacToe.Game_Controllers.GameController#refreshPressed()
      */
     @Override
     public void refreshPressed() {

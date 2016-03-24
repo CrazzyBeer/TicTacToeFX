@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import com.TicTacToe.GameController.AIVSAIController;
-import com.TicTacToe.GameController.playerVSAIController;
-import com.TicTacToe.GameController.playerVSplayerController;
+import com.TicTacToe.Game_Controllers.AIVSAIController;
+import com.TicTacToe.Game_Controllers.playerVSAIController;
+import com.TicTacToe.Game_Controllers.playerVSplayerController;
 import com.TicTacToe.Helper_Classes.Logger;
 
 import javafx.fxml.FXMLLoader;

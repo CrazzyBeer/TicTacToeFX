@@ -1,4 +1,4 @@
-package com.TicTacToe.GameController;
+package com.TicTacToe.Game_Controllers;
 
 import com.TicTacToe.Game.AIVSAIGame;
 
@@ -27,7 +27,7 @@ public class AIVSAIController extends GameController {
     /**
      * Adds the letters without giving to user the possibility to
      * interact with them
-     * @see com.TicTacToe.GameController.GameController#prepareLetters()
+     * @see com.TicTacToe.Game_Controllers.GameController#prepareLetters()
      */
     @Override
     public void prepareLetters() {
@@ -71,7 +71,7 @@ public class AIVSAIController extends GameController {
     /**
      * Restarts the game
      * 
-     * @see com.TicTacToe.GameController.GameController#refreshPressed()
+     * @see com.TicTacToe.Game_Controllers.GameController#refreshPressed()
      */
     @Override
     public void refreshPressed() {
