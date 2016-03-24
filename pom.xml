@@ -22,7 +22,7 @@
 				<artifactId>javafx-maven-plugin</artifactId>
 				<version>8.4.0</version>
 				<configuration>
-					<mainClass>com.TicTacToe.Main</mainClass>
+					<mainClass>com.TicTacToe.Main.Main</mainClass>
 					<vendor>Number Converter</vendor>
 				</configuration>
 
@@ -40,7 +40,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.NumberConverter.Main</mainClass>
+							<mainClass>com.TicTacToe.Main.Main</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
