@@ -1,4 +1,4 @@
-package com.TicTacToe;
+package com.TicTacToe.Main;
 
 import java.awt.Desktop;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 import com.TicTacToe.GameController.AIVSAIController;
 import com.TicTacToe.GameController.playerVSAIController;
 import com.TicTacToe.GameController.playerVSplayerController;
+import com.TicTacToe.Helper_Classes.Logger;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

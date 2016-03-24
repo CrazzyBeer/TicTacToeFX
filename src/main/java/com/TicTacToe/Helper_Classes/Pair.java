@@ -1,4 +1,4 @@
-package com.TicTacToe;
+package com.TicTacToe.Helper_Classes;
 
 public class Pair <T1, T2> {
 	public T1 x;

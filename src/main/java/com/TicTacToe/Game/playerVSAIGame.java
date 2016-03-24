@@ -1,6 +1,6 @@
 package com.TicTacToe.Game;
 
-import com.TicTacToe.Board;
+import com.TicTacToe.Helper_Classes.Board;
 
 import javafx.scene.text.Text;
 

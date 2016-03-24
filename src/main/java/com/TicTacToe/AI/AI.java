@@ -5,9 +5,9 @@ import java.io.InputStreamReader;
 import java.util.Random;
 import java.util.Vector;
 
-import com.TicTacToe.Board;
-import com.TicTacToe.Logger;
-import com.TicTacToe.Pair;
+import com.TicTacToe.Helper_Classes.Board;
+import com.TicTacToe.Helper_Classes.Logger;
+import com.TicTacToe.Helper_Classes.Pair;
 
 /**
  * Selects the best move with the highest (winPoints + drawPoints)/games,

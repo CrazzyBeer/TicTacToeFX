@@ -2,9 +2,9 @@ package com.TicTacToe.Game;
 
 import java.util.Stack;
 
-import com.TicTacToe.Board;
-import com.TicTacToe.Pair;
 import com.TicTacToe.AI.AI;
+import com.TicTacToe.Helper_Classes.Board;
+import com.TicTacToe.Helper_Classes.Pair;
 
 import javafx.scene.text.Text;
 

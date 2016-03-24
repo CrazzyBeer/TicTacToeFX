@@ -1,4 +1,4 @@
-package com.TicTacToe;
+package com.TicTacToe.Main;
 
 import com.TicTacToe.Game.AIVSAIGame;
 

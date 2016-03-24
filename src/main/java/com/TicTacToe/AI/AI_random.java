@@ -3,8 +3,8 @@ package com.TicTacToe.AI;
 import java.util.Random;
 import java.util.Vector;
 
-import com.TicTacToe.Board;
-import com.TicTacToe.Pair;
+import com.TicTacToe.Helper_Classes.Board;
+import com.TicTacToe.Helper_Classes.Pair;
 
 /**
  * Selects the a random move from all the available ones

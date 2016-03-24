@@ -10,7 +10,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="500.0" prefWidth="500.0" styleClass="mainBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TicTacToe.MainController">
+<VBox prefHeight="500.0" prefWidth="500.0" styleClass="mainBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TicTacToe.Main.MainController">
    <children>
       <HBox alignment="CENTER">
          <children>

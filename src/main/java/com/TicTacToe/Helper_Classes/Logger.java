@@ -1,4 +1,4 @@
-package com.TicTacToe;
+package com.TicTacToe.Helper_Classes;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;

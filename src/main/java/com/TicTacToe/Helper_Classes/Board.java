@@ -1,4 +1,4 @@
-package com.TicTacToe;
+package com.TicTacToe.Helper_Classes;
 
 public class Board {
 	//Board [i][0] and [0][i] shows the amount of X's in each row and column

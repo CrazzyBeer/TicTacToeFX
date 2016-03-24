@@ -1,9 +1,11 @@
-package com.TicTacToe;
+package com.TicTacToe.Main;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+
+import com.TicTacToe.Helper_Classes.Logger;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
