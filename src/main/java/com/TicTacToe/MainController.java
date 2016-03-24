@@ -123,4 +123,23 @@ public class MainController {
 		}
 	}
 	
+	public void settingsPressed() {
+		try {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/settings.fxml"));
+		Pane root = loader.load();
+		SettingsController settings = loader.<SettingsController> getController();
+		
+		Scene settingsScene = new Scene(root);
+		settingsScene.getStylesheets().add(getClass().getResource("/CSS/settings.css").toExternalForm());
+		
+		settings.setStage(mainStage);
+		settings.setMainSceneScene(mainScene);
+		
+		mainStage.setScene(settingsScene);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

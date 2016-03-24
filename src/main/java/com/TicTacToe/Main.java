@@ -32,6 +32,7 @@ public class Main extends Application {
 	    mainStage.setScene(mainScene);
 	    mainStage.setMinWidth(500);
 	    mainStage.setMinHeight(500);
+	    //mainStage.setResizable(false);
 	    mainStage.show();
 
 	} catch (Exception e) {
@@ -51,10 +52,12 @@ public class Main extends Application {
 		while (!t.isFinished())
 		    t.nextMove();
 		int r = t.getIntResult();
-		if (r == 1)
+		if (r == 1) {
 		    w1++;
-		if (r == 2)
+		}
+		if (r == 2) {
 		    w2++;
+		}
 		if (r == 3)
 		    d++;
 	    }
@@ -62,6 +65,7 @@ public class Main extends Application {
 		    (double) (w1 * 100) / games, (double) (w2 * 100) / games, (double) (d * 100) / games);
 
 	} else {
+	    //Game with UI
 	    launch(args);
 	}
 

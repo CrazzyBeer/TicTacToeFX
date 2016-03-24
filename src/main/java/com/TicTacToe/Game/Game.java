@@ -4,7 +4,7 @@ import java.util.Stack;
 
 import com.TicTacToe.Board;
 import com.TicTacToe.Pair;
-import com.TicTacToe.AI.AI_recursive;
+import com.TicTacToe.AI.AI;
 
 import javafx.scene.text.Text;
 
@@ -22,8 +22,8 @@ public class Game {
 
     protected Stack<Board> gameStack; // All the game boards
 
-    protected AI_recursive AI1; // First AI
-    protected AI_recursive AI2; // Second AI
+    protected AI AI1; // First AI
+    protected AI AI2; // Second AI
 
     public Game(Text[][] letters) {
 
@@ -34,8 +34,8 @@ public class Game {
 	gameStack = new Stack<Board>();
 	gameStack.push(new Board());
 
-	AI1 = new AI_recursive(1); // First AI goes first
-	AI2 = new AI_recursive(2); // Goes second
+	AI1 = new AI(1); // First AI goes first
+	AI2 = new AI(2); // Goes second
     }
 
     public Game() {
@@ -46,8 +46,8 @@ public class Game {
 	gameStack = new Stack<Board>();
 	gameStack.push(new Board());
 
-	AI1 = new AI_recursive(1); // First AI goes first
-	AI2 = new AI_recursive(2); // Goes second
+	AI1 = new AI(1); // First AI goes first
+	AI2 = new AI(2); // Goes second
     }
 
     /**
@@ -94,7 +94,7 @@ public class Game {
      * 
      * @param AI
      */
-    public void moveAI(AI_recursive AI) {
+    public void moveAI(AI AI) {
 	Pair <Integer, Integer> res = AI.makeMove(currentBoard, AI.getMyNum());
 	if (res == null)
 	    return;
@@ -236,5 +236,29 @@ public class Game {
 		}
 	    }
 	}
+    }
+
+    public Board getCurrentBoard() {
+        return currentBoard;
+    }
+
+    public void setCurrentBoard(Board currentBoard) {
+        this.currentBoard = currentBoard;
+    }
+
+    public Stack<Board> getGameStack() {
+        return gameStack;
+    }
+
+    public void setGameStack(Stack<Board> gameStack) {
+        this.gameStack = gameStack;
+    }
+    
+    public void getStackTrace() {
+	System.out.println("----------------------");
+	for (Board b : gameStack) {
+	    System.out.println(b.toString());
+	}
+	System.out.println("----------------------");
     }
 }

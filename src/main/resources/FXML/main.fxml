@@ -104,7 +104,7 @@
                   <Insets bottom="3.0" right="10.0" top="3.0" />
                </padding>
             </Button>
-            <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="250.0" styleClass="btn" text="Settings" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+            <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onAction="#settingsPressed" prefHeight="35.0" prefWidth="250.0" styleClass="btn" text="Settings" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets bottom="15.0" top="15.0" />
                </VBox.margin>

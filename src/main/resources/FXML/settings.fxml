@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="mainBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TicTacToe.SettingsController">
+   <children>
+      <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="267.0" minWidth="10.0" prefWidth="266.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="234.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="ALWAYS" />
+          <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="AI mistake probability" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </GridPane.margin>
+                     <styleClass>
+                        <String fx:value="lbl" />
+                        <String fx:value="btnleft" />
+                     </styleClass>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="errorLabel" maxHeight="1.7976931348623157E308" maxWidth="60.0" prefWidth="60.0" text="Label">
+                     <HBox.margin>
+                        <Insets bottom="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="lbl" />
+                        <String fx:value="btnright" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" GridPane.rowIndex="1">
+               <children>
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="AI randomness" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </GridPane.margin>
+                     <styleClass>
+                        <String fx:value="lbl" />
+                        <String fx:value="btnleft" />
+                     </styleClass>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="shuffleLabel" maxHeight="1.7976931348623157E308" maxWidth="60.0" prefWidth="60.0" text="Label">
+                     <HBox.margin>
+                        <Insets bottom="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="lbl" />
+                        <String fx:value="btnright" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </HBox>
+            <Slider fx:id="errorSlider" blockIncrement="5.0" onMouseDragged="#errorSliderDragged" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets right="8.0" top="10.0" />
+               </GridPane.margin>
+            </Slider>
+            <Slider fx:id="shuffleSlider" blockIncrement="5.0" onMouseDragged="#shuffleSliderDragged" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets right="8.0" top="10.0" />
+               </GridPane.margin>
+            </Slider>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </GridPane>
+      <HBox alignment="CENTER" spacing="5.0">
+         <children>
+            <Label alignment="CENTER" graphicTextGap="8.0" onMouseClicked="#backToMenuPressed" prefHeight="30.0" styleClass="btn" text="Back to menu">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="3.0" left="8.0" right="8.0" top="3.0" />
+               </padding>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="5.0" onMouseClicked="#savePressed" prefHeight="30.0" styleClass="btn" text="Save">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="3.0" left="8.0" right="8.0" top="3.0" />
+               </padding>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

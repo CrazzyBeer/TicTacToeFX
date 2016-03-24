@@ -1,6 +1,7 @@
 package com.TicTacToe.Game;
 
-import com.TicTacToe.AI.AI_recursive;
+
+import com.TicTacToe.AI.AI;
 
 import javafx.scene.text.Text;
 
@@ -33,7 +34,7 @@ public class playerVSplayerGame extends Game {
      * 
      * @see com.TicTacToe.Game.Game#moveAI(AI_recursive)
      */
-    public void moveAI(AI_recursive AI) {
+    public void moveAI(AI AI) {
 	throw new UnsupportedOperationException("Only supported in AI Games");
     }
 
