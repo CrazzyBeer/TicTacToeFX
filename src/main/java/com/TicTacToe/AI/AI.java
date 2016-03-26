@@ -10,9 +10,9 @@ import com.TicTacToe.Helper_Classes.Logger;
 import com.TicTacToe.Helper_Classes.Pair;
 
 /**
- * Selects the best move with the highest (winPoints + drawPoints)/games,
- * If the program can win or lose in one move - it is forces to make or, respectively, avoid that move
- * Quite weak against blunders
+ * Selects the best move from the game tree
+ * Uses recursion
+ * @see com.TicTacToe.AI.AI#simulate(Board, int) for more information
  * @author Denis Rozimovschii
  *
  */
@@ -43,8 +43,9 @@ public class AI {
 	if (b.checkResult() > 0)
 	    return null;
 
-	Vector<Pair<Integer, Integer>> bestPairs = new Vector<Pair<Integer, Integer>>();
-	double bestRes = -200;
+	Vector<Pair<Integer, Integer>> winning = new Vector<Pair<Integer, Integer>>(); //All the winning moves
+	Vector<Pair<Integer, Integer>> drawing = new Vector<Pair<Integer, Integer>>(); //All the drawing moves
+	Vector<Pair<Integer, Integer>> losing = new Vector<Pair<Integer, Integer>>();  //All the losing moves
 
 	Random rand = new Random();
 	rand.setSeed(System.currentTimeMillis());
@@ -53,32 +54,76 @@ public class AI {
 	    for (int j = 1; j <= 3; j++) {
 		if (b.getValue(i, j) == 0) {
 		    b.activate(i, j, myNum);
-		    Pair<Double, Double> res = simulate(b, nextTurn(myNum), 1);
+		    int res = simulate(b, nextTurn(myNum));
 		    b.deactivate(i, j);
-
-		    double tempRes = res.x / res.y;
-		    if (rand.nextDouble() <= errorChance) {
-			bestPairs.add(new Pair <Integer, Integer> (i, j));
-		    } else if (tempRes > bestRes) {
-			bestRes = tempRes;
-			bestPairs.clear();
-			bestPairs.add(new Pair <Integer, Integer> (i, j));
-		    } else if (tempRes == bestRes) {
-			bestPairs.add(new Pair <Integer, Integer> (i, j));
-		    }
+		    
+		    //Adds the positions to the vectors depending on the result
+		    if (res == 1)
+			winning.add(new Pair<>(i, j));
+		    if (res == 0)
+			drawing.add(new Pair<>(i, j));
+		    if (res == -1)
+			losing.add(new Pair<>(i, j));
 		}
 	    }
 	}
+	// Makes an error, selects a random move from all the available ones, even losing moves
+	if (rand.nextDouble() <= errorChance) {
+	    drawing.addAll(losing);
+	    drawing.addAll(winning);
+	    int pos = rand.nextInt(drawing.size());
+	    return drawing.elementAt(pos);
+	}
+
+	// Selects a random move from the winning ones and, if there is no winning move - selects from drawing
+	// If there are no drawing positions, selects from the losing ones
 	int pos = 0;
 	if (rand.nextDouble() <= shuffleChance) {
-	    pos = rand.nextInt(bestPairs.size());
-	}
-	return bestPairs.elementAt(pos);
-    }
 
-    public Pair<Double, Double> simulate(Board board, int turn, int moves) {
+	    if (winning.size() == 0) {
+		if (drawing.size() == 0) {
+		    pos = rand.nextInt(losing.size());
+		    return losing.elementAt(pos);
+		} else {
+		    pos = rand.nextInt(drawing.size());
+		    return drawing.elementAt(pos);
+		}
+
+	    } else {
+		pos = rand.nextInt(winning.size());
+		return winning.elementAt(pos);
+	    }
+
+	}
+	
+	//No randomness, select the first element from the best available list
+	if (winning.size() == 0) {
+	    if (drawing.size() == 0) {
+		return losing.elementAt(0);
+	    } else {
+		return drawing.elementAt(0);
+	    }
+	} else {
+	    return winning.elementAt(0);
+	}
+    }
+    
+    /**
+     * Recursively plays min-maxing game. 
+     * Each player tends to maximize his score
+     * 1 - represents a win so THIS AI Always tends to find 1 in all the child nodes, it means a sure win
+     * 0 - represents a draw, so this is the plan B in case 1 is not found
+     * -1 - represents a lose, so THIS AI'S opponent will always try to find a -1 meaning a sure lose for THIS AI
+     * @param board current game board
+     * @param turn 1, 2 based on who moves now
+     * @return 1, 0, -1 win of this AI, draw and respectively losing
+     */
+    public int simulate(Board board, int turn) {
 	int gameResult = board.checkResult();
-	Pair<Double, Double> finalResult = new Pair<Double, Double>(0.0, 0.0);
+	int hasWin = 0;
+	int hasDraw = 0;
+	int hasLose = 0;
+
 	if (gameResult == 0) {
 	    // Game is not finished, continue the recursion
 	    for (int i = 1; i <= 3; i++)
@@ -86,30 +131,46 @@ public class AI {
 		    if (board.getValue(i, j) == 0) {
 
 			board.activate(i, j, turn);
-			Pair<Double, Double> res = simulate(board, nextTurn(turn), moves + 1);
+			int res = simulate(board, nextTurn(turn));
 			board.deactivate(i, j);
 
-			finalResult.x += res.x;
-			finalResult.y += res.y;
+			if (res == 0)
+			    hasDraw++;
+			else if (res == 1)
+			    hasWin++;
+			else
+			    hasLose++;
+
 		    }
 		}
 
-	    return finalResult; // Return the final sum
-	} else if (gameResult == 3) {
+	    if (turn == myNum) {
+		if (hasWin > 0)
+		    return 1;
+		if (hasDraw > 0)
+		    return 0;
+		return -1;
+	    } else {
+		if (hasLose > 0)
+		    return -1;
+		if (hasDraw > 0)
+		    return 0;
+		return 1;
+	    }
+	} else if (gameResult == 3) { // Game finished
 
-	    return new Pair<Double, Double>(1.0, 1.0); // Game finished with a draw. Return 1 point
-	} else {
+	    return 0; // Game finished with a draw. Return 1 point
+
+	} else { // gameResult == 1 || gameResult == 2
 
 	    if (gameResult == myNum) {
-		if (moves == 1)
-		    return new Pair<Double, Double>(100.0, 1.0);
-		return new Pair<Double, Double>(1.5, 1.0); // Game finished with a win. Return 1.5 points
+
+		return 1; // Game finished with a win. Return 1.5 points
 	    }
 
 	    else {
-		if (moves == 2)
-		    return new Pair<Double, Double>(-110.0, 1.0);
-		return new Pair<Double, Double>(0.0, 1.0); // Game finished with a lose. Return 0 points
+
+		return -1; // Game finished with a lose. Return 0 points
 	    }
 	}
     }
