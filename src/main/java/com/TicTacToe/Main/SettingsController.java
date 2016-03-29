@@ -1,9 +1,10 @@
 package com.TicTacToe.Main;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.InputStreamReader;
+import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.Scanner;
 
 import com.TicTacToe.Helper_Classes.Logger;
 
@@ -22,23 +23,55 @@ public class SettingsController {
     public Stage mainStage;
     public Scene mainScene;
 
+    public String path;
     public void initialize() {
-
+	initSaveDirectory();
+	
 	read();
 
 	update();
+	
+    }
+
+    private void initSaveDirectory() {
+	
+	path = System.getProperty("user.home") + "/TicTacToeFX";
+	File loc = new File(path);
+
+	if (!loc.isDirectory()) {
+	    try {
+		loc.mkdir();
+	    } catch (Exception e) {
+		Logger.error("Error creating a directory at " + loc.getPath());
+	    }
+	}
+
+	File file = new File(path + "/settings.txt");
+	try {
+	    
+	    if (!file.isDirectory()) {
+		file.createNewFile();
+	    }
+		
+	    
+	    
+	} catch (Exception e) {
+	    Logger.error("Error creating a file at " + file.getPath());
+	}
+	
     }
 
     private void read() {
-	InputStreamReader isReader = null;
-	BufferedReader br = null;
-	try {
-	    isReader = new InputStreamReader(this.getClass().getResourceAsStream("/Settings/settings.txt"));
-	    br = new BufferedReader(isReader);
-	    currentError = Double.parseDouble(br.readLine());
-	    currentShuffle = Double.parseDouble(br.readLine());
 
-	    br.close();
+	File file = new File(path + "/settings.txt");
+	Scanner sc = null;
+	try {
+	    sc = new Scanner(file).useLocale(Locale.ENGLISH);
+	    
+	    currentError = sc.nextDouble();
+	    currentShuffle = sc.nextDouble();
+
+	    sc.close();
 
 	    update();
 	} catch (Exception e) {
@@ -48,9 +81,12 @@ public class SettingsController {
     }
 
     private void write() {
+
+	File file = new File(path + "/settings.txt");
 	PrintWriter pw = null;
+	
 	try {
-	    pw = new PrintWriter(new File(this.getClass().getResource("/Settings/settings.txt").getPath()));
+	    pw = new PrintWriter(new FileWriter(file));
 	    pw.println(currentError);
 	    pw.println(currentShuffle);
 	    pw.close();

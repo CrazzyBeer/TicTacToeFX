@@ -1,8 +1,9 @@
 package com.TicTacToe.AI;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.util.Locale;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Vector;
 
 import com.TicTacToe.Helper_Classes.Board;
@@ -26,6 +27,8 @@ public class AI {
 	myNum = turn;
 	b = new Board();
 	read();
+	
+	
     }
 
     /**
@@ -188,15 +191,16 @@ public class AI {
     }
 
     private void read() {
-	InputStreamReader isReader = null;
-	BufferedReader br = null;
+	String path = System.getProperty("user.home") + "/TicTacToeFX";
+	File file = new File(path + "/settings.txt");
+	Scanner sc = null;
 	try {
-	    isReader = new InputStreamReader(this.getClass().getResourceAsStream("/Settings/settings.txt"));
-	    br = new BufferedReader(isReader);
-	    errorChance = Double.parseDouble(br.readLine()) / 100;
-	    shuffleChance = Double.parseDouble(br.readLine()) / 100;
+	    sc = new Scanner(file).useLocale(Locale.ENGLISH);
+	    
+	    errorChance =   sc.nextDouble() / 100;
+	    shuffleChance = sc.nextDouble() / 100;
 
-	    br.close();
+	    sc.close();
 
 	} catch (Exception e) {
 	    Logger.error("There was an error reading the settings file");
