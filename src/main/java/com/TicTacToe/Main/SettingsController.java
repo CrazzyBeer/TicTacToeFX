@@ -25,6 +25,7 @@ public class SettingsController {
 
     public String path;
     public void initialize() {
+	
 	initSaveDirectory();
 	
 	read();
@@ -33,14 +34,14 @@ public class SettingsController {
 	
     }
 
-    private void initSaveDirectory() {
+    public void initSaveDirectory() {
 	
 	path = System.getProperty("user.home") + "/TicTacToeFX";
 	File loc = new File(path);
 
 	if (!loc.isDirectory()) {
 	    try {
-		loc.mkdir();
+		loc.mkdirs();
 	    } catch (Exception e) {
 		Logger.error("Error creating a directory at " + loc.getPath());
 	    }
@@ -49,11 +50,10 @@ public class SettingsController {
 	File file = new File(path + "/settings.txt");
 	try {
 	    
-	    if (!file.isDirectory()) {
+	    if (!file.exists()) {
 		file.createNewFile();
-	    }
-		
-	    
+		write(0.0, 50.0);
+	    }		    
 	    
 	} catch (Exception e) {
 	    Logger.error("Error creating a file at " + file.getPath());
@@ -99,6 +99,24 @@ public class SettingsController {
 	}
     }
 
+    private void write(double currentError, double currentShuffle) {
+
+	File file = new File(path + "/settings.txt");
+	PrintWriter pw = null;
+	
+	try {
+	    pw = new PrintWriter(new FileWriter(file));
+	    pw.println(currentError);
+	    pw.println(currentShuffle);
+	    pw.close();
+	    update();
+	} catch (Exception e) {
+	    Logger.error("There was an error writing to the settings file");
+	    e.printStackTrace();
+	} finally {
+
+	}
+    }
     private void update() {
 	errorLabel.setText(Double.toString(Math.round(currentError)) + "%");
 	shuffleLabel.setText(Double.toString(Math.round(currentShuffle)) + "%");

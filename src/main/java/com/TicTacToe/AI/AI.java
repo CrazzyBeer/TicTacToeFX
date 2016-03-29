@@ -9,6 +9,7 @@ import java.util.Vector;
 import com.TicTacToe.Helper_Classes.Board;
 import com.TicTacToe.Helper_Classes.Logger;
 import com.TicTacToe.Helper_Classes.Pair;
+import com.TicTacToe.Main.SettingsController;
 
 /**
  * Selects the best move from the game tree
@@ -191,6 +192,9 @@ public class AI {
     }
 
     private void read() {
+	SettingsController settings = new SettingsController();
+	settings.initSaveDirectory();
+	
 	String path = System.getProperty("user.home") + "/TicTacToeFX";
 	File file = new File(path + "/settings.txt");
 	Scanner sc = null;
